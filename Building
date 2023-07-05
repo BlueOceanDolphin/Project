@@ -1,0 +1,15 @@
+public class Building {
+    public static void main(String[] args) {
+
+        double Building_Angle = Math.toRadians(45.0);
+
+        double Observer_vision = 1.6;
+
+        double Building_Distence = 30.0;
+
+        double Building_Hight = Building_Distence + (Observer_vision * Math.tan(Building_Angle));
+
+        System.out.println(Building_Hight);
+
+    }
+}
