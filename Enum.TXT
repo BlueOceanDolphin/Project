@@ -1,0 +1,40 @@
+Enum 클래스
+    - 정적 상수만을 정의하기 위한 용도가 제한된 클래스의 일종
+    - java.lang.Enum 클래스의 하위 클래스
+
+    class Transportation extends java.lang.Enum {
+
+    }
+    - 상수는 열거 하듯이 정의
+        enum Transportation {
+            BUS,
+            TAXI,
+            SUBWAY;
+        }
+
+        class Transportation extends java.lang.Enum {
+            public static final Transportation BUS = new Transportation();
+            public static final Transportation BUS = new Transportation();
+            public static final Transportation BUS = new Transportation();
+
+        }
+
+        - 생성자 메서드 - private : 상수로써 유지
+            class Transportation extends java.lang.Enum {
+                public static final Transportation BUS = new Transportation();
+                public static final Transportation BUS = new Transportation();
+                public static final Transportation BUS = new Transportation();
+
+            private Transportation() {}
+        }
+
+        ==
+
+    - 추상 클래스
+            abstract class Transportation extends java.lang.Enum {
+                public static final Transportation BUS = new Transportation();
+                public static final Transportation BUS = new Transportation();
+                public static final Transportation BUS = new Transportation();
+
+            private Transportation() {}
+        }

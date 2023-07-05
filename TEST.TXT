@@ -1,0 +1,122 @@
+CREATE USER
+
+ALTER USER
+
+DROP USER
+
+
+
+GRANT (권한)
+
+RESOURCE, CONNECT
+
+
+시스템 계정 접속
+SQLPLUS SYSTEM/_aA123456
+
+ALTER USER SCOTT IDENTIFIED BY tiger ACCOUNT UNLOCK
+
+CREATE USER ...(컬럼명) IDENTIFIED BY ...(비밀번호); -> ACCOUNT UNLOCK
+
+시스템 권한 - 사용자, 테이블, 세션(접속), 시퀀스, 동의어
+
+객체 권한 - 사용자별 객체에 대한 권한, 조회, 수정, 삭제 등등...
+
+GRANT 권한 TO 사용자명;
+
+REVOKE 권한 FROM 사용자명;
+
+
+객체권한
+GRANT 권한 ... ON 스키마명.객체명 ... TO 사용자
+REVOKE 권한 ... ON 스키마명.객체명 ... FROM 사용자
+
+도메인 영역 무결성 제약조건
+(자료형)
+
+문자
+    CHAR(갯수) : 갯수만큼 고정 공간 - 국가코드 KR (CHAR(2))
+    VARCHAR2(최대 바이트수) : 최대 바이트 수만큼 유동적으로 갯수가 결정
+                               -한줄 텍스트
+    NVARCHAR2
+
+    CLOB(Character Large OBject) : 최대 4GB
+숫자
+    NUMBER(전체자리수, 소수점 자리수) : 정수, 실수
+    Price NUMBER(5) : 최대 5자리 정수
+    Price NUMBER(5,2) : 전체 자리수가 5자리, 그중에 소수점이 2자리
+                        100.12
+
+날짜
+    DATE : 날짜 + 시간
+
+        참고) MYSQL
+            DATE : 날짜
+            TIME : 시간
+            DATETIME : 날짜 + 시간
+
+
+기타    
+BLOB (Binary Large Object) : 4GB
+
+
+DDL(Date Definition Language) : 데이터 정의어
+    - CREATE, ALTER, DROP
+    - CREATE TABLE ... CREATE INDEX, CREATE SEQUENCE, CREATE VIEW...
+    - 쿼리 실행시 즉시 COMMIT -> ROLLBACK 불가능
+
+DML(Data Manipulation Language) : 데이터 조작어
+    - SELECT, INSERT, UPDATE, DELETE
+    - 트랜잭션 수동 관리 가능(COMMIT, ROLLBACK 가능)
+
+트랜잭션
+    - 작업 수행의 최소단위 (COMMIT 전까지)
+    - COMMIT - 작업을 영구반영
+    - ROLLBACK - 작업취소
+
+CREATE TABLE 테이블명 (
+    컬럼명 자료형 [제약조건],
+    ...
+);
+
+제약조건
+    - 기본키 PRIMARY KEY
+    - NOT NULL : 필수항목
+    - UNIQUE, NOT NULL
+    - DEFAULT 기본값
+    - REFERENCES 테이블명(기본키명)//참조 무결성 제약조건
+
+    -> 제약조건명이 시스템에서 자동 생성 -> 관리가 어렵다.
+    -> CONSTRAINT 제약조건명 제약조건
+
+    LOGIN_PWD VARCHAR2(20) CONSTRAINT TB_LPWD_NN NOT NULL
+
+외래키 : 참조 무결성 제약조건
+    - 1) 부모 테이블에 없는 데이터는 자식쪽에서 추가 X
+    - 2) 자식 데이터가 있는 부모는 삭제 불가능
+    - 3) ON DELETE CASCADE : 부모가 삭제되면 자식도 연쇄 삭제
+    - 4) ON DELETE SET NULL : 부모가 삭제되면 자식 데이터 NULL으로 변경
+
+-> SQLPLUS 접속 -> 캡쳐
+-> SCOTT 계정 활성화 -> 캡쳐
+-> DBWeaver 연결 설정 -> 캡쳐
+
+데이터베이스 구현
+
+시험기간
+
+
+읽기의 일관성
+동등조인
+비등가조인
+셀프조인
+외부조인
+JOIN  USING
+      
+
+조별스터디
+- 챕터 : 조원별로 할당 - 요약 -> 발표
+    -> 매주 금요일 : 통합 -> 제출
+
+프로그래밍 언어 응용
+7/14(금) - 4교시 3문항
